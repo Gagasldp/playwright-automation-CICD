@@ -7,6 +7,6 @@ test.describe('Login', () => {
     const loginPage = new LoginPage(page);
     await loginPage.goto();
     await loginPage.login('standard_user', 'secret_sauce');
-    await expect(page).toHaveURL(`${URLs.BASE_URL}inventory.html`);
+    await expect(page).toHaveURL(`${URLs.BASE_URL}/inventory.html`);
   }
 )});
