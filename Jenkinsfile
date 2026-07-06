@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'mcr.microsoft.com/playwright:v1.54.1-noble'
             args '--ipc=host'
+            reuseNode true
         }
     }
 
