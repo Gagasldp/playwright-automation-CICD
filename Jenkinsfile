@@ -1,12 +1,12 @@
 pipeline {
-    agent any
-
-    tools {
-        nodejs 'Node22'
+    agent {
+        docker {
+            image 'mcr.microsoft.com/playwright:v1.54.1-noble'
+            args '--ipc=host'
+        }
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
@@ -16,12 +16,6 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'npm ci'
-            }
-        }
-
-        stage('Install Playwright Browsers') {
-            steps {
-                sh 'npx playwright install'
             }
         }
 
