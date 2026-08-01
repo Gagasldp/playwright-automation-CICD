@@ -17,6 +17,7 @@ export default defineConfig({
     ],
   use: {
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
   },
   projects: [
   {
