@@ -1,30 +1,29 @@
 pipeline {
-    agent {
-        docker {
-            image 'mcr.microsoft.com/playwright:v1.61.1-noble'
-            args '--ipc=host'
-        }
-    }
+    agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Install') {
+        stage('Install & Test') {
+            agent {
+                docker {
+                    image 'mcr.microsoft.com/playwright:v1.61.1-noble'
+                    args '--ipc=host'
+                }
+            }
+
             steps {
                 sh 'npm ci'
-            }
-        }
-
-        stage('Test') {
-            steps {
                 sh 'npx playwright test'
             }
         }
     }
+
     post {
         always {
             allure([
