@@ -3,13 +3,13 @@ import { URLs } from '../constant/url';
 
 
 export class LoginPage {
-    readonly page : Page;
+    readonly page: Page;
     readonly usernameInput: Locator;
     readonly passwordInput: Locator;
     readonly loginButton: Locator;
     readonly errorMessage: Locator;
 
-    constructor (page: Page) {
+    constructor(page: Page) {
         this.page = page;
 
         this.usernameInput = page.locator('#user-name');

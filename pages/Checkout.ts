@@ -1,7 +1,7 @@
-import { expect, Locator, Page} from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 
 export class CheckoutPage {
-    readonly page:Page;
+    readonly page: Page;
     readonly checkoutButton: Locator;
     readonly firstNameInput: Locator;
     readonly lastNameInput: Locator;
